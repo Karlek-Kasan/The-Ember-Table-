@@ -1,0 +1,2547 @@
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f1e8;
+    color: #3a2920;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    height: 82px;
+    width: 100%;
+
+    background: rgba(255, 250, 241, 0.98);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid #eadbc8;
+
+    box-shadow:
+        0 5px 25px rgba(70, 40, 20, 0.08);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    width: 190px;
+    height: 70px;
+}
+
+.logo-img {
+    width: 180px;
+    height: auto;
+
+    max-height: 62px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.nav-item {
+    width: 82px;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    color: #4b3328;
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================================
+   REAL REFERENCE ICONS
+========================================= */
+
+.nav-icon {
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition: 0.3s ease;
+
+    filter: sepia(20%);
+}
+
+
+/* =========================================
+   NAV LABEL
+========================================= */
+
+.nav-label {
+    position: absolute;
+
+    bottom: 8px;
+
+    font-size: 11px;
+
+    letter-spacing: 0.5px;
+
+    color: #c95628;
+
+    opacity: 0;
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================================
+   NAV HOVER
+========================================= */
+
+.nav-item:hover .nav-icon {
+    transform: translateY(-8px) scale(1.05);
+}
+
+.nav-item:hover .nav-label {
+    opacity: 1;
+}
+
+
+/* =========================================
+   ACTIVE NAV
+========================================= */
+
+.nav-item.active .nav-icon {
+    transform: translateY(-8px);
+}
+
+.nav-item.active .nav-label {
+    opacity: 1;
+    color: #c95628;
+}
+
+
+/* ACTIVE UNDERLINE */
+
+.nav-item.active::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 38px;
+    height: 2px;
+
+    background: #c95628;
+}
+
+
+/* =========================================
+   NAV RESERVATION BUTTON
+========================================= */
+
+.reserve-btn {
+    text-decoration: none;
+
+    background: #c95628;
+
+    color: white;
+
+    padding: 13px 24px;
+
+    border-radius: 4px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+
+    transition: 0.3s ease;
+}
+
+.reserve-btn:hover {
+    background: #a9401d;
+
+    transform: translateY(-2px);
+}
+
+.calendar-symbol{
+    height: 20px;
+    width: 20px;
+}
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    height: 100vh;
+
+    min-height: 650px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================================
+   RADIO BUTTONS
+========================================= */
+
+.hero input {
+    display: none;
+}
+
+
+/* =========================================
+   HERO IMAGES
+========================================= */
+
+.hero-images {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+}
+
+.hero-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    opacity: 0;
+
+    transform: scale(1.04);
+
+    transition:
+        opacity 0.8s ease,
+        transform 5s ease;
+}
+
+
+/* =========================================
+   IMAGE 1
+   RESTAURANT ENTRANCE
+========================================= */
+
+.image1 {
+    background-image:
+        url("../images/restaurant_entrance.png");
+
+    background-position: 15% center;
+}
+
+
+/* =========================================
+   IMAGE 2
+========================================= */
+
+.image2 {
+    background-image:
+        url("../images/restaurant_interior.png");
+
+    background-position: center center;
+}
+
+
+/* =========================================
+   IMAGE 3
+========================================= */
+
+.image3 {
+    background-image:
+        url("../images/entrance.jpg");
+
+    background-position: center center;
+}
+
+
+/* =========================================
+   IMAGE 4
+========================================= */
+
+.image4 {
+    background-image:
+        url("../images/exterior.png");
+
+    background-position: center center;
+}
+
+
+/* =========================================
+   SHOW SELECTED SLIDE
+========================================= */
+
+#slide1:checked ~ .hero-images .image1 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#slide2:checked ~ .hero-images .image2 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#slide3:checked ~ .hero-images .image3 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#slide4:checked ~ .hero-images .image4 {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =========================================
+   WARM EMBER OVERLAY
+========================================= */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            rgba(247, 235, 217, 0.98) 0%,
+
+            rgba(247, 235, 217, 0.94) 17%,
+
+            rgba(247, 235, 217, 0.78) 31%,
+
+            rgba(247, 235, 217, 0.35) 45%,
+
+            rgba(50, 29, 18, 0.08) 60%,
+
+            rgba(35, 20, 12, 0.25) 100%
+        );
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+
+    max-width: 600px;
+
+    margin-left: 7%;
+
+    margin-top: 35px;
+
+    color: #3a2920;
+}
+
+
+/* =========================================
+   SMALL TITLE
+========================================= */
+
+.small-title {
+    color: #a84b27;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.hero h1 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(55px, 6vw, 82px);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+    color: #3a2920;
+
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: #a84b27;
+}
+
+
+/* =========================================
+   DECORATIVE LINE
+========================================= */
+
+.hero-line {
+    width: 70px;
+
+    height: 2px;
+
+    background: #c95628;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================
+   TAGLINE
+========================================= */
+
+.tagline {
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    color: #68483a;
+
+    margin-bottom: 18px;
+}
+/* =========================================
+   DECORATIVE DIVIDER
+========================================= */
+
+.decorative-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 190px;
+
+    margin-bottom: 18px;
+
+    gap: 10px;
+}
+
+
+.decorative-divider span {
+
+    display: block;
+
+    height: 1px;
+
+    background: #c95628;
+
+    flex: 1;
+}
+
+
+.decorative-divider i {
+
+    font-style: normal;
+
+    font-size: 13px;
+
+    color: #c95628;
+
+    line-height: 1;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero-description {
+    max-width: 480px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #4f4037;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   BUTTON BASE
+========================================= */
+
+.primary-btn,
+.secondary-btn {
+    text-decoration: none;
+
+    padding: 14px 24px;
+
+    border-radius: 3px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+
+    /* IMPORTANT */
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
+
+.primary-btn {
+    background: #c95628;
+
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #a9401d;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   SECONDARY BUTTON
+========================================= */
+
+.secondary-btn {
+    border: 1px solid #a84b27;
+
+    color: #713d29;
+
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.secondary-btn:hover {
+    background: #c95628;
+
+    color: white;
+}
+
+
+/* =========================================
+   HERO BUTTON ICONS
+========================================= */
+
+.button-icon {
+    width: 25px;
+
+    height: 25px;
+
+    object-fit: contain;
+
+    display: block;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   MAKE EXPLORE MENU ICON WHITE
+========================================= */
+
+.menu-button-icon {
+    filter: brightness(0) invert(1);
+}
+
+
+/* =========================================
+   IMAGE DOTS
+========================================= */
+
+.image-controls {
+    position: absolute;
+
+    z-index: 20;
+
+    /* THIS KEEPS DOTS AT BOTTOM */
+    bottom: 30px;
+
+    /* CENTER */
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    /* KEEP DOTS HORIZONTAL */
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    width: max-content;
+
+    height: auto;
+}
+
+
+/* =========================================
+   DOT
+========================================= */
+
+.image-controls label {
+    display: block;
+
+    width: 9px;
+
+    height: 9px;
+
+    min-width: 9px;
+
+    min-height: 9px;
+
+    border-radius: 50%;
+
+    border: 2px solid white;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================================
+   DOT HOVER
+========================================= */
+
+.image-controls label:hover {
+    background: #c95628;
+}
+
+
+/* =========================================
+   ACTIVE DOT
+========================================= */
+
+#slide1:checked ~ .image-controls label:nth-child(1),
+#slide2:checked ~ .image-controls label:nth-child(2),
+#slide3:checked ~ .image-controls label:nth-child(3),
+#slide4:checked ~ .image-controls label:nth-child(4) {
+
+    width: 32px;
+
+    min-width: 32px;
+
+    border-radius: 10px;
+
+    background: #c95628;
+
+    border-color: #c95628;
+}
+
+
+/* =========================================
+   RESPONSIVE - 1100px
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 0 3%;
+    }
+
+    .nav-item {
+        width: 70px;
+    }
+
+    .reserve-btn {
+        padding: 11px 16px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - 850px
+========================================= */
+
+@media (max-width: 850px) {
+
+    .nav-item {
+        width: 58px;
+    }
+
+    .nav-icon {
+        width: 27px;
+        height: 27px;
+    }
+
+    .nav-label {
+        font-size: 9px;
+    }
+
+    .hero-content {
+        margin-left: 5%;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - 650px
+========================================= */
+
+@media (max-width: 650px) {
+
+    .logo {
+        transform: scale(0.8);
+
+        transform-origin: left center;
+    }
+
+    .nav {
+        gap: 0;
+    }
+
+    .nav-item {
+        width: 50px;
+    }
+
+    .nav-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .reserve-btn {
+        display: none;
+    }
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(247, 235, 217, 0.96),
+                rgba(247, 235, 217, 0.78)
+            );
+    }
+
+    .hero-content {
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .hero-line {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =========================================
+   OUR STORY SECTION
+========================================= */
+
+.our-story {
+
+    width: 100%;
+
+    padding: 110px 7%;
+
+    background: #f7efe4;
+
+    position: relative;
+}
+
+
+/* =========================================
+   STORY CONTAINER
+========================================= */
+
+.story-container {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+
+/* =========================================
+   STORY IMAGE
+========================================= */
+
+.story-image {
+
+    position: relative;
+
+    height: 500px;
+
+    overflow: hidden;
+}
+
+
+.story-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.6s ease;
+}
+
+
+.story-image:hover img {
+
+    transform: scale(1.04);
+}
+
+
+/* Decorative frame */
+
+.story-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 18px;
+
+    border: 1px solid rgba(201, 86, 40, 0.6);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   STORY CONTENT
+========================================= */
+
+.story-content {
+
+    max-width: 520px;
+}
+
+
+/* Small title */
+
+.story-small-title {
+
+    color: #a84b27;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+/* Main heading */
+
+.story-content h2 {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(40px, 4vw, 60px);
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    color: #3a2920;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 22px;
+}
+
+
+.story-content h2 span {
+
+    display: block;
+
+    color: #a84b27;
+}
+
+
+/* =========================================
+   STORY DIVIDER
+========================================= */
+
+.story-divider {
+
+    width: 170px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 25px;
+}
+
+
+.story-divider span {
+
+    height: 1px;
+
+    background: #c95628;
+
+    flex: 1;
+}
+
+
+.story-divider i {
+
+    font-style: normal;
+
+    font-size: 12px;
+
+    color: #c95628;
+}
+
+
+/* =========================================
+   STORY TEXT
+========================================= */
+
+.story-text {
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #5c4a40;
+
+    margin-bottom: 16px;
+
+    max-width: 500px;
+}
+
+
+/* =========================================
+   STORY BUTTON
+========================================= */
+
+.story-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 15px;
+
+    padding: 14px 22px;
+
+    background: #c95628;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    border-radius: 3px;
+
+    transition: 0.3s ease;
+}
+
+
+.story-button span {
+
+    font-size: 18px;
+
+    line-height: 0;
+}
+
+
+.story-button:hover {
+
+    background: #a9401d;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .our-story {
+
+        padding: 80px 6%;
+    }
+
+
+    .story-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .story-image {
+
+        height: 400px;
+    }
+
+
+    .story-content {
+
+        max-width: 100%;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .our-story {
+
+        padding: 65px 5%;
+    }
+
+
+    .story-image {
+
+        height: 320px;
+    }
+
+
+    .story-content h2 {
+
+        font-size: 40px;
+    }
+
+}
+/* STORY LEAF */
+
+.story-leaf-decoration {
+    position: absolute;
+    width: 400px;
+    right: -80px;
+    bottom: -100px;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.story-leaf-decoration img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+
+
+/* =========================
+   CHEF'S SPECIAL
+========================= */
+
+.chefs-special {
+    padding: 100px 35px;
+    background: #f7efe4;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading p {
+    color: #a13d16;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    color: #3a2920;
+}
+
+
+/* GRID */
+
+.special-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 38px;
+    max-width: 1450px;
+    margin: auto;
+}
+
+
+/* CARD */
+
+.special-card {
+    position: relative;
+    background: #fbf6ed;
+    border: 1px solid #d8cfc2;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px 12px 18px;
+    text-align: center;
+    transition: 0.35s ease;
+}
+
+.special-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(70, 40, 25, 0.12);
+}
+
+
+/* BADGE */
+
+.food-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #a94119;
+    color: white;
+
+    padding: 10px 25px;
+
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    z-index: 2;
+}
+
+
+/* FOOD IMAGE */
+
+.food-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s ease;
+}
+
+.special-card:hover .food-image img {
+    transform: scale(1.06);
+}
+
+
+/* CONTENT */
+
+.food-content {
+    padding: 15px 12px 0;
+}
+
+.food-content h3 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: 500;
+    color: #3d2b23;
+    margin: 0;
+}
+
+.mini-divider {
+    color: #b04b25;
+    margin: 8px 0 12px;
+}
+
+.food-content p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: #4f4b48;
+    min-height: 70px;
+}
+
+.price {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    color: #8f3d20;
+    margin: 10px 0 16px;
+}
+
+
+/* CARD FOOTER */
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.card-footer > span {
+    width: 75px;
+    height: 1px;
+    background: #b9a997;
+}
+
+.mini-logo {
+    display: flex;
+    flex-direction: column;
+    color: #3d2b23;
+    line-height: 1;
+}
+
+.mini-logo small {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.mini-logo strong {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+
+
+
+/* ==================================
+   RESERVATION VIDEO SECTION
+================================== */
+
+.reservation-banner {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* VIDEO */
+
+.reservation-video {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+}
+
+
+/* DARK OVERLAY */
+
+.reservation-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(53, 22, 10, 0.68);
+
+    z-index: 2;
+}
+
+
+/* CONTENT */
+
+.reservation-content {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    max-width: 1200px;
+
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    color: white;
+}
+
+
+/* TEXT */
+
+.reservation-text h2 {
+    margin: 0 0 10px;
+
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: 500;
+
+    letter-spacing: 2px;
+}
+
+.reservation-text p {
+    margin: 0;
+
+    font-size: 14px;
+    letter-spacing: 0.3px;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* RESERVE BUTTON */
+
+.reserve-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 16px 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+
+    transition: 0.3s ease;
+
+    white-space: nowrap;
+}
+
+
+/* YOUR EXISTING ICON */
+
+.reserve-icon {
+    width: 30px;
+    height: 30px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* HOVER */
+
+.reserve-btn:hover {
+    background: #a94119;
+    border-color: #a94119;
+}
+
+
+/* =====================================
+   OUR EXPERIENCE SECTION
+===================================== */
+
+.experience-section {
+    position: relative;
+    width: 100%;
+    padding: 65px 7% 0;
+    background: #fffaf2;
+    overflow: hidden;
+}
+
+
+/* =====================
+   HEADING
+===================== */
+
+.experience-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.experience-heading h2 {
+    margin: 0;
+
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+
+    color: #3f2a20;
+}
+
+.heading-line {
+    width: 45px;
+    height: 1px;
+
+    background: #a34a25;
+}
+
+
+/* =====================
+   4 IMAGE CARDS
+===================== */
+
+.experience-gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 65px;
+}
+
+
+/* CARD */
+
+.experience-card {
+    position: relative;
+
+    height: 210px;
+
+    overflow: hidden;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation:
+        experienceReveal 0.8s ease forwards;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* STAGGER ANIMATION */
+
+.experience-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.experience-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.experience-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.experience-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+
+/* IMAGE */
+
+.experience-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.4s ease;
+}
+
+
+/* DARK OVERLAY */
+
+.experience-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(62, 25, 10, 0.45),
+            transparent 60%
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+}
+
+
+/* =====================
+   HOVER EFFECT
+===================== */
+
+.experience-card:hover {
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(67, 30, 14, 0.25);
+}
+
+.experience-card:hover img {
+    transform: scale(1.12);
+
+    filter:
+        brightness(1.08)
+        saturate(1.1);
+}
+
+.experience-card:hover::after {
+    opacity: 1;
+}
+
+
+/* =====================
+   CARD ENTRY ANIMATION
+===================== */
+
+@keyframes experienceReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =====================================
+   EXPERIENCE FEATURES
+===================================== */
+
+.experience-features {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    margin-left: -8%;
+    margin-right: -8%;
+
+    padding:
+        65px 7% 65px 13%;
+
+    border-top:
+        1px solid
+        rgba(114, 76, 48, 0.15);
+
+    background: #fffaf2;
+
+    overflow: hidden;
+}
+
+
+/* =====================
+   LEAF ON LEFT SIDE
+===================== */
+
+.experience-leaf {
+    position: absolute;
+
+    left: -25px;
+
+    top: 50%;
+
+    width: 190px;
+    height: auto;
+
+    transform:
+        translateY(-50%);
+
+    opacity: 0.18;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =====================
+   FEATURE CARD
+===================== */
+
+.experience-feature {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 180px;
+
+    padding:
+        10px 30px;
+
+    text-align: center;
+
+    border-right:
+        1px solid
+        rgba(114, 76, 48, 0.18);
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+/* REMOVE LAST BORDER */
+
+.experience-feature:last-child {
+    border-right: none;
+}
+
+
+/* FEATURE HOVER */
+
+.experience-feature:hover {
+    transform:
+        translateY(-6px);
+}
+
+
+/* ICON */
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+
+    margin-bottom: 16px;
+}
+
+
+/* TITLE */
+
+.experience-feature h3 {
+    margin:
+        0 0 13px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    color: #4a3024;
+}
+
+
+/* TEXT */
+
+.experience-feature p {
+    max-width: 180px;
+
+    margin: auto;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: #66554c;
+}
+
+
+
+.experience-leaf {
+    width: 330px;
+    height: auto;
+
+    left: -45px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    opacity: 0.18;
+}
+
+
+
+
+.experience-features {
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.experience-leaf {
+    position: absolute;
+
+    width: 330px;
+    height: auto;
+
+    left: -45px;
+
+    /* Leaf feature section ke TOP se start hogi */
+    top: 0;
+
+    /* Purana center transform remove */
+    transform: none;
+
+    opacity: 0.18;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.site-footer {
+    width: 100%;
+    background: #fffaf2;
+    color: #4a3024;
+}
+
+
+/* MAIN FOOTER */
+
+.footer-main {
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        1fr
+        1.3fr
+        1.8fr
+        1.3fr;
+
+    padding: 28px 7% 20px;
+
+    border-top:
+        1px solid rgba(114, 76, 48, 0.15);
+}
+
+
+/* EACH COLUMN */
+
+.footer-column {
+    min-height: 115px;
+
+    padding: 0 28px;
+
+    border-right:
+        1px solid rgba(114, 76, 48, 0.15);
+}
+
+
+/* LAST COLUMN NO BORDER */
+
+.footer-column:last-child {
+    border-right: none;
+}
+
+
+/* HEADINGS */
+
+.footer-column h4 {
+    margin: 0 0 14px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    color: #4a3024;
+}
+
+
+/* =====================
+   LOGO
+===================== */
+
+.footer-logo {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.footer-logo-image {
+    width: 115px;
+    height: auto;
+
+    object-fit: contain;
+
+    margin-bottom: 5px;
+}
+
+
+.footer-logo p {
+    margin: 0;
+
+    font-size: 15px;
+
+    letter-spacing: 1.3px;
+
+    color: #6b564b;
+}
+
+
+/* =====================
+   QUICK LINKS
+===================== */
+
+.footer-links {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+
+.footer-links a {
+    text-decoration: none;
+
+    font-size: 12px;
+
+    color: #6b564b;
+
+    transition: 0.3s ease;
+}
+
+
+.footer-links a:hover {
+    color: #b14a22;
+
+    padding-left: 4px;
+}
+
+
+/* =====================
+   OPENING HOURS
+===================== */
+
+.footer-hours {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.footer-hours div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.footer-hours strong {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #5a4034;
+}
+
+
+.footer-hours span {
+    font-size: 10px;
+
+    color: #77655b;
+}
+
+
+/* =====================
+   CONTACT
+===================== */
+
+.contact-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin-bottom: 9px;
+}
+
+
+.footer-contact-icon {
+    width: 30px;
+    height: 30px;
+
+    object-fit: contain;
+
+    margin-top: 1px;
+}
+
+
+.contact-item span {
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    color: #6b564b;
+}
+
+
+/* =====================
+   SOCIAL ICONS
+===================== */
+
+.social-icons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(114, 76, 48, 0.3);
+
+    border-radius: 50%;
+
+    transition: 0.3s ease;
+}
+
+
+.social-icons a:hover {
+    transform: translateY(-4px);
+
+    background: #b14a22;
+
+    border-color: #b14a22;
+}
+
+
+.social-icons img {
+    width: 25px;
+    height: 25px;
+
+    object-fit: contain;
+
+    transition: 0.3s ease;
+}
+
+
+/* =====================
+   BOTTOM COPYRIGHT BAR
+===================== */
+
+.footer-bottom {
+    background: #54230f;
+
+    padding: 9px 20px;
+
+    text-align: center;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #f5e7d7;
+
+    font-size: 9px;
+
+    letter-spacing: 0.3px;
+}
+
+
+.site-footer {
+    width: 100%;
+    color: #4a3024;
+
+    background-color: #fff7ed;
+
+    background-image: url("../images/marble-texture-footer.png") !important;
+    background-repeat: repeat !important;
+    background-size: 500px auto !important;
+    background-position: center !important;
+}
+
+.footer-main {
+    background: transparent;
+}
+
+/* =========================
+   GUEST VOICES SECTION
+========================= */
+
+.guest-voices {
+  position: relative;
+  min-height: 850px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 20px;
+
+  background-image: url("../images/entrance.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  overflow: hidden;
+}
+
+
+/* Dark Overlay */
+
+.guest-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.60);
+}
+
+
+/* Hide Radio Buttons */
+
+.guest-voices > input {
+  display: none;
+}
+
+
+/* Main Content */
+
+.guest-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 900px;
+
+  text-align: center;
+
+  color: white;
+}
+
+
+/* Small Heading */
+
+.guest-small-title {
+  font-size: 13px;
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+
+/* Main Heading */
+
+.guest-content > h2 {
+  font-size: 42px;
+  font-weight: 600;
+
+  margin-bottom: 5px;
+}
+
+
+/* Quotation Mark */
+
+.quote-mark {
+  font-family: Georgia, serif;
+
+  font-size: 100px;
+  line-height: 80px;
+
+  opacity: 0.5;
+
+  margin-top: 10px;
+}
+
+
+/* Reviews Area */
+
+.guest-reviews {
+  position: relative;
+
+  min-height: 180px;
+
+  max-width: 760px;
+
+  margin: auto;
+}
+
+
+/* Individual Review */
+
+.guest-review {
+  position: absolute;
+
+  width: 100%;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+
+/* Show Selected Review */
+
+#guest-1:checked ~ .guest-content .review-1,
+#guest-2:checked ~ .guest-content .review-2,
+#guest-3:checked ~ .guest-content .review-3,
+#guest-4:checked ~ .guest-content .review-4,
+#guest-5:checked ~ .guest-content .review-5,
+#guest-6:checked ~ .guest-content .review-6 {
+
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+
+/* Review Text */
+
+.guest-review p {
+  font-size: 20px;
+  line-height: 1.8;
+
+  font-style: italic;
+
+  margin-bottom: 25px;
+}
+
+
+/* Guest Name */
+
+.guest-review h3 {
+  font-size: 18px;
+
+  margin-bottom: 5px;
+}
+
+
+/* Verified Guest */
+
+.guest-review span {
+  font-size: 13px;
+
+  opacity: 0.75;
+}
+
+
+/* =========================
+   GUEST SELECTOR
+========================= */
+
+.guest-selector {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 30px;
+}
+
+
+/* Guest Circle */
+
+.guest-selector label {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+}
+
+
+/* Hover */
+
+.guest-selector label:hover {
+  transform: translateY(-6px);
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Active Guest */
+
+#guest-1:checked ~ .guest-content label[for="guest-1"],
+#guest-2:checked ~ .guest-content label[for="guest-2"],
+#guest-3:checked ~ .guest-content label[for="guest-3"],
+#guest-4:checked ~ .guest-content label[for="guest-4"],
+#guest-5:checked ~ .guest-content label[for="guest-5"],
+#guest-6:checked ~ .guest-content label[for="guest-6"] {
+
+  background: white;
+
+  color: #222;
+
+  transform: translateY(-6px);
+}
+
+
+/* =========================
+   SHARE EXPERIENCE
+========================= */
+
+.your-experience {
+  max-width: 550px;
+
+  margin: 65px auto 0;
+
+  padding-top: 40px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+.your-experience h3 {
+  font-size: 25px;
+
+  margin-bottom: 8px;
+}
+
+
+.your-experience > p {
+  font-size: 14px;
+
+  opacity: 0.85;
+
+  margin-bottom: 25px;
+}
+
+
+/* Form */
+
+.your-experience form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+/* Inputs */
+
+.your-experience input,
+.your-experience textarea {
+
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 5px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: rgb(251, 241, 220);
+
+  font-family: inherit;
+
+  font-size: 14px;
+}
+
+
+/* Placeholder */
+
+.your-experience input::placeholder,
+.your-experience textarea::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* Textarea */
+
+.your-experience textarea {
+  min-height: 100px;
+
+  resize: vertical;
+}
+
+
+/* Button */
+
+.your-experience button {
+  align-self: center;
+
+  padding: 13px 28px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  background: #a84b27;
+
+  color:white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+
+/* Button Hover */
+
+.your-experience button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .guest-voices {
+    padding: 80px 20px;
+
+    background-attachment: scroll;
+  }
+
+  .guest-content > h2 {
+    font-size: 32px;
+  }
+
+  .guest-review p {
+    font-size: 16px;
+  }
+
+  .quote-mark {
+    font-size: 75px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .guest-content > h2 {
+    font-size: 28px;
+  }
+
+  .guest-review p {
+    font-size: 15px;
+  }
+
+  .guest-selector {
+    gap: 8px;
+  }
+
+  .guest-selector label {
+    width: 40px;
+    height: 40px;
+  }
+
+  .your-experience {
+    margin-top: 50px;
+  }
+}
+
+
+
